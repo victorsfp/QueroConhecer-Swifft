@@ -27,6 +27,29 @@ class PlaceFinderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(getLocation(_:)))
+        gesture.minimumPressDuration = 2.0
+        mapView.addGestureRecognizer(gesture)
+    }
+    
+    
+    @objc func getLocation(_ gesture: UILongPressGestureRecognizer){
+        if gesture.state == .began {
+            load(show: true)
+            let point = gesture.location(in: mapView) //Ele retorna X e Y do componente
+            let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
+                self.load(show: false)
+                if error == nil {
+                    if !self.savePlace(with: placemarks?.first){
+                        self.showMessage(type: .error("Não foi encontrado nenhum local com esse nome"))
+                    }
+                }else {
+                    self.showMessage(type: .error("Erro desconhecido"))
+                }
+            }
+        }
     }
     
     @IBAction func findCity(_ sender: UIButton) {
