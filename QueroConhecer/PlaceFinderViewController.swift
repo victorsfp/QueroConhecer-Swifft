@@ -14,6 +14,10 @@ enum PlaceFinderMessageType {
     case confirmation(String)
 }
 
+protocol PlaceFinderDelegate: AnyObject {
+    func addPlace(_ place:Place) -> Void
+}
+
 class PlaceFinderViewController: UIViewController {
 
     
@@ -21,6 +25,9 @@ class PlaceFinderViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var aiLoading: UIActivityIndicatorView!
     @IBOutlet weak var viLoading: UIView!
+    
+    var place: Place!
+    weak var delegate: PlaceFinderDelegate?
     
     
     
@@ -78,6 +85,7 @@ class PlaceFinderViewController: UIViewController {
         let address = Place.getFormatedAddress(with: placemark)
         
         let place = Place(name: name, latitude: coordinate.latitude, longitude: coordinate.longitude, address: address)
+        self.place = place
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 3500, longitudinalMeters: 3500)
         //let region = MKCoordinateRegionMakeWithDistance(coordinate, latitudinalMeters, longitudinal)
         
@@ -107,7 +115,8 @@ class PlaceFinderViewController: UIViewController {
         alert.addAction(cancelAction)
         if hasConfirmation {
             let confirmAction = UIAlertAction(title: "OK", style: .default) { action in
-                print("OK")
+                self.delegate?.addPlace(self.place)
+                self.dismiss(animated: true, completion: nil)
             }
             alert.addAction(confirmAction)
         }

@@ -54,7 +54,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="MHl-eN-jHh"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1gv-Ok-1tA">
                             <connections>
-                                <segue destination="OhK-Bn-d81" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="cfn-u4-IAo"/>
+                                <segue destination="OhK-Bn-d81" kind="presentation" identifier="finderSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="cfn-u4-IAo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
