@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844C3F2A2785E12D0093E5C3 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C3F292785E12C0093E5C3 /* PlaceAnnotation.swift */; };
 		84A8B3A22783446D005FF60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8B3A12783446D005FF60A /* AppDelegate.swift */; };
 		84A8B3A42783446D005FF60A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8B3A32783446D005FF60A /* SceneDelegate.swift */; };
 		84A8B3A62783446D005FF60A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8B3A52783446D005FF60A /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		844C3F292785E12C0093E5C3 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		84A8B39E2783446D005FF60A /* QueroConhecer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueroConhecer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A8B3A12783446D005FF60A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A8B3A32783446D005FF60A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				84A8B3A52783446D005FF60A /* ViewController.swift */,
 				84A8B3A72783446D005FF60A /* Main.storyboard */,
 				84A8B3B927834ED0005FF60A /* MapViewController.swift */,
+				844C3F292785E12C0093E5C3 /* PlaceAnnotation.swift */,
 				84A8B3B72783464B005FF60A /* PlaceFinderViewController.swift */,
 				84A8B3BB27836488005FF60A /* Place.swift */,
 				84A8B3B5278345DC005FF60A /* PlacesTableViewController.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844C3F2A2785E12D0093E5C3 /* PlaceAnnotation.swift in Sources */,
 				84A8B3A62783446D005FF60A /* ViewController.swift in Sources */,
 				84A8B3BA27834ED0005FF60A /* MapViewController.swift in Sources */,
 				84A8B3B6278345DC005FF60A /* PlacesTableViewController.swift in Sources */,
@@ -314,6 +318,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,6 +348,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

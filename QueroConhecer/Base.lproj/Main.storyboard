@@ -78,17 +78,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="main"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMx-CQ-DIc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="faK-r4-sAf">
                                 <rect key="frame" x="10" y="150" width="394" height="702"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" placeholder="O que você deseja buscar?" translatesAutoresizingMaskIntoConstraints="NO" id="vLt-Pf-RAc">
+                                    <searchBar clipsSubviews="YES" contentMode="redraw" placeholder="O que você deseja buscar?" translatesAutoresizingMaskIntoConstraints="NO" id="vLt-Pf-RAc">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="gj1-ZC-QtU"/>
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="OL9-Z4-AA0" id="PMp-6z-fPx"/>
+                                        </connections>
                                     </searchBar>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Emv-fW-0NQ">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="Emv-fW-0NQ">
                                         <rect key="frame" x="0.0" y="50" width="394" height="486"/>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sO2-3g-Vn3">
@@ -133,13 +140,23 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-dP-b4Y">
+                                <rect key="frame" x="188.5" y="424.5" width="37" height="37"/>
+                                <color key="color" name="main"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q46-QN-eyN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Wrs-aL-Hgd" secondAttribute="trailing" id="1qI-Ho-F2u"/>
+                            <constraint firstItem="faK-r4-sAf" firstAttribute="top" secondItem="pMx-CQ-DIc" secondAttribute="bottom" constant="10" id="5TB-uu-GUB"/>
+                            <constraint firstItem="cRR-dP-b4Y" firstAttribute="centerY" secondItem="Emv-fW-0NQ" secondAttribute="centerY" id="BAH-p1-57t"/>
+                            <constraint firstItem="pMx-CQ-DIc" firstAttribute="leading" secondItem="u3R-kI-5Yf" secondAttribute="leading" id="Ob5-9Y-Hlr"/>
+                            <constraint firstAttribute="trailing" secondItem="pMx-CQ-DIc" secondAttribute="trailing" id="Svg-7s-4MV"/>
                             <constraint firstAttribute="bottom" secondItem="Wrs-aL-Hgd" secondAttribute="bottom" id="Yfm-eo-Udr"/>
+                            <constraint firstItem="cRR-dP-b4Y" firstAttribute="centerX" secondItem="Emv-fW-0NQ" secondAttribute="centerX" id="dZN-PM-yXj"/>
                             <constraint firstItem="faK-r4-sAf" firstAttribute="leading" secondItem="q46-QN-eyN" secondAttribute="leading" constant="10" id="eY8-hc-10u"/>
+                            <constraint firstItem="pMx-CQ-DIc" firstAttribute="top" secondItem="u3R-kI-5Yf" secondAttribute="top" id="fCv-fj-LrY"/>
                             <constraint firstItem="Wrs-aL-Hgd" firstAttribute="top" secondItem="u3R-kI-5Yf" secondAttribute="top" id="qxL-sh-caf"/>
                             <constraint firstItem="q46-QN-eyN" firstAttribute="trailing" secondItem="faK-r4-sAf" secondAttribute="trailing" constant="10" id="rx3-so-sMw"/>
                             <constraint firstItem="faK-r4-sAf" firstAttribute="top" secondItem="q46-QN-eyN" secondAttribute="top" constant="10" id="tLO-SM-xgC"/>
@@ -157,6 +174,7 @@
                     <connections>
                         <outlet property="lbAddress" destination="wJD-Bh-fga" id="bam-aW-BFf"/>
                         <outlet property="lbName" destination="OHd-Us-KRr" id="xBN-Ef-UWS"/>
+                        <outlet property="loading" destination="cRR-dP-b4Y" id="lNC-JI-JnX"/>
                         <outlet property="mapView" destination="Emv-fW-0NQ" id="xbx-gH-BDp"/>
                         <outlet property="searchBar" destination="vLt-Pf-RAc" id="O9M-BT-0cJ"/>
                         <outlet property="viInfo" destination="sO2-3g-Vn3" id="ph3-ay-X12"/>
@@ -288,7 +306,7 @@ por 2 seguindos</string>
         <scene sceneID="Y5D-rb-VvZ">
             <objects>
                 <navigationController id="hmw-0n-0EL" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="iC5-Tp-gfP">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleAspectFill" largeTitles="YES" id="iC5-Tp-gfP">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
